@@ -1,19 +1,27 @@
+// Builder.jsx
 import StudioEditor from "@grapesjs/studio-sdk/react";
 import "@grapesjs/studio-sdk/style";
-
+import "grapesjs-blocks-basic"; // ✅ Load default blocks
 
 const Builder = () => {
   return (
     <StudioEditor
       options={{
-        // ...
+        plugins: ["gjs-blocks-basic"], // ✅ Activate block plugin
+        pluginsOpts: {
+          "gjs-blocks-basic": {
+            blocks: ["text", "image", "video", "link"],
+            category: "Basic",
+          },
+        },
         project: {
           type: "web",
           default: {
             pages: [
-              { name: "Home", component: "<h1>Home page</h1>" },
-              { name: "About", component: "<h1>About page</h1>" },
-              { name: "Contact", component: "<h1>Contact page</h1>" },
+              {
+                name: "Home",
+                component: "<div class='my-container'><h1>Welcome</h1></div>",
+              },
             ],
           },
         },
