@@ -1,13 +1,14 @@
 // Builder.jsx
 import StudioEditor from "@grapesjs/studio-sdk/react";
 import "@grapesjs/studio-sdk/style";
-import "grapesjs-blocks-basic"; // ✅ Load default blocks
+import "grapesjs-blocks-basic"; 
 
 const Builder = () => {
   return (
-    <StudioEditor
+  <div className="h-screen">
+      <StudioEditor
       options={{
-        plugins: ["gjs-blocks-basic"], // ✅ Activate block plugin
+        plugins: ["gjs-blocks-basic"], 
         pluginsOpts: {
           "gjs-blocks-basic": {
             blocks: ["text", "image", "video", "link"],
@@ -27,6 +28,7 @@ const Builder = () => {
         },
       }}
     />
+  </div>
   );
 };
 
