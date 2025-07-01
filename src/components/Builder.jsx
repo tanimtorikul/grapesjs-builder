@@ -2,25 +2,26 @@ import { useState } from "react";
 import StudioEditor from "@grapesjs/studio-sdk/react";
 import "@grapesjs/studio-sdk/style";
 import "grapesjs-blocks-basic";
-import productCardBlock from "../blocks/productCardBlock";
+import customVideoBlock from "../blocks/customVideoBlock";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import customVideoComponent from "./CustomVideoComponent";
+import itemCardComponent from "./itemCardComponent";
+import itemContainerComponent from "./itemContainerComponent";
+import itemContainerBlock from "../blocks/itemContainerBlock";
+import itemCardBlock from "../blocks/itemCardBlock";
 
 const Builder = () => {
-  const [editor, setEditor] = useState(null); 
-  const navigate = useNavigate()
+  const [editor, setEditor] = useState(null);
+  const navigate = useNavigate();
 
- const handleSave = () => {
-  if (!editor) return;
-  const html = editor.getHtml();
-  const css = editor.getCss();
-
-  localStorage.setItem("product-template", html);
-  localStorage.setItem("product-style", css); 
-  toast.success("Template & Style saved!");
-navigate('/product')
-};
-
+  const handleSave = async () => {
+    if (!editor) return;
+    const projectData = await editor.getProjectData();
+    localStorage.setItem("product-template-json", JSON.stringify(projectData));
+    toast.success("Template JSON saved!");
+    navigate("/item");
+  };
 
   return (
     <div className="h-screen flex flex-col">
@@ -37,10 +38,16 @@ navigate('/product')
       <div className="flex-1 flex">
         <div className="flex-1">
           <StudioEditor
-            onEditor={setEditor}
+            onEditor={(editor) => {
+              setEditor(editor);
+              customVideoComponent(editor); 
+                itemCardComponent(editor);
+    itemContainerComponent(editor);
+            }}
             options={{
+              theme: "dark",
               blocks: {
-                default: [productCardBlock],
+                default: [customVideoBlock, itemContainerBlock, itemCardBlock],
               },
               pages: false,
               project: {
