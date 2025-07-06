@@ -43,7 +43,7 @@ const customVideoComponent = (editor) => {
       },
 
       handleChange() {
-        this.view.onRender(); // re-render the block on any change
+        this.view.onRender(); 
       },
     },
 
@@ -88,7 +88,7 @@ const customVideoComponent = (editor) => {
   });
 };
 
-// Helper to extract YouTube video ID
+// helper function
 function extractYouTubeID(url) {
   try {
     const parsed = new URL(url);
@@ -99,7 +99,7 @@ function extractYouTubeID(url) {
       return parsed.pathname.slice(1);
     }
   } catch {
-    return url; // assume it's already an ID
+    return url;
   }
 }
 

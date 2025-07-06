@@ -1,19 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Builder from "./components/Builder";
+import Builder from "./pages/Builder";
 import { Toaster } from "react-hot-toast";
-import ProductPage from "./pages/ProductPage";
-import CustomBuilder from "./pages/CustomBuilder";
-import Slider from "./pages/Slider";
 import ItemPage from "./pages/ItemPage";
+import StudioPreviewDisplay from "./pages/StudioPreviewDisplay";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Builder />} />
-        <Route path="/product" element={<ProductPage />} />
         <Route path="/item" element={<ItemPage />} />
-           <Route path="/slider" element={<Slider />} />
+           <Route path="/latest-news" element={<StudioPreviewDisplay />} />
 
       </Routes>
       <Toaster/>

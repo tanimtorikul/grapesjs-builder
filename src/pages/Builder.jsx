@@ -5,11 +5,14 @@ import "grapesjs-blocks-basic";
 import customVideoBlock from "../blocks/customVideoBlock";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import customVideoComponent from "./CustomVideoComponent";
-import itemCardComponent from "./itemCardComponent";
-import itemContainerComponent from "./itemContainerComponent";
+import customVideoComponent from "../components/CustomVideoComponent";
+import itemCardComponent from "../components/itemCardComponent";
+import itemContainerComponent from "../components/itemContainerComponent";
 import itemContainerBlock from "../blocks/itemContainerBlock";
-import itemCardBlock from "../blocks/itemCardBlock";
+import latestNewsMarqueeBlock from "../blocks/latestNewsMarqueeBlock";
+import latestNewsMarqueeComponent from "../components/latestNewsMarqueeComponent";
+import searchBarBlock from "../blocks/searchBarBlock";
+import searchBarComponent from "../components/searchBarComponent";
 
 const Builder = () => {
   const [editor, setEditor] = useState(null);
@@ -20,7 +23,7 @@ const Builder = () => {
     const projectData = await editor.getProjectData();
     localStorage.setItem("product-template-json", JSON.stringify(projectData));
     toast.success("Template JSON saved!");
-    navigate("/item");
+    navigate("/latest-news");
   };
 
   return (
@@ -40,14 +43,21 @@ const Builder = () => {
           <StudioEditor
             onEditor={(editor) => {
               setEditor(editor);
-              customVideoComponent(editor); 
-                itemCardComponent(editor);
-    itemContainerComponent(editor);
+              customVideoComponent(editor);
+              itemCardComponent(editor);
+              latestNewsMarqueeComponent(editor);
+              itemContainerComponent(editor);
+              searchBarComponent(editor)
             }}
             options={{
               theme: "dark",
               blocks: {
-                default: [customVideoBlock, itemContainerBlock, itemCardBlock],
+                default: [
+                  customVideoBlock,
+                  itemContainerBlock,
+                  searchBarBlock,
+                  latestNewsMarqueeBlock,
+                ],
               },
               pages: false,
               project: {

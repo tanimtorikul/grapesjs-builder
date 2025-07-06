@@ -46,16 +46,23 @@ const itemContainerComponent = (editor) => {
         this.generateCards(count);
       },
 
-      generateCards(count) {
-        const components = this.get("components");
-        components.reset();
-        for (let i = 1; i <= count; i++) {
-          components.add({
-            type: "item-card",
-           
-          });
-        }
-      },
+    generateCards(count) {
+  const components = this.get("components");
+  const currentCount = components.length;
+
+  if (currentCount > count) {
+    // Remove extra
+    for (let i = currentCount - 1; i >= count; i--) {
+      components.at(i).remove();
+    }
+  } else {
+    // Add new ones
+    for (let i = currentCount; i < count; i++) {
+      components.add({ type: "item-card" });
+    }
+  }
+}
+
     },
 
     view: {
