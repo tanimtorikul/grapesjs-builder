@@ -1,0 +1,16 @@
+{
+  "grapesjs": {
+    "blocks": {
+      "latest-news": "Latest News",
+      "category": "Bus Ticketing System"
+    },
+    "components": {
+      "latest-news": {
+        "traits": {
+          "mode": "News Mode",
+          "text": "Static News Text"
+        }
+      }
+    }
+  }
+}

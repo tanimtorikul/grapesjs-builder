@@ -1,0 +1,17 @@
+
+{
+  "grapesjs": {
+    "blocks": {
+      "latest-news": "Dernières Nouvelles",
+      "category": "Système de Réservation de Bus"
+    },
+    "components": {
+      "latest-news": {
+        "traits": {
+          "mode": "Mode d'Actualités",
+          "text": "Texte d'Actualités Statique"
+        }
+      }
+    }
+  }
+}

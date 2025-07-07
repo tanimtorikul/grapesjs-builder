@@ -28,8 +28,8 @@ const itemCardComponent = (editor) => {
       onRender() {
         const attrs = this.model.getAttributes();
         this.el.innerHTML = `
-          <h4 style="margin: 0 0 8px 0;">${attrs.itemName}</h4>
-          <p style="color: #27ae60; font-weight: bold; margin: 0;">${attrs.price}</p>
+          <h4 >${attrs.itemName}</h4>
+          <p >${attrs.price}</p>
         `;
         
         // Preserve existing classes and don't override styles

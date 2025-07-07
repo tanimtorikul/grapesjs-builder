@@ -6,8 +6,9 @@ const searchBarBlock = {
     type: "search-bar",
     attributes: {
       theme: "theme1",
-      returnField: "with-return"
-    }
+      returnOption: "with",
+      language: "en", 
+    },
   },
 };
 

@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Builder />} />
         <Route path="/item" element={<ItemPage />} />
-           <Route path="/latest-news" element={<StudioPreviewDisplay />} />
+           <Route path="/page" element={<StudioPreviewDisplay />} />
 
       </Routes>
       <Toaster/>

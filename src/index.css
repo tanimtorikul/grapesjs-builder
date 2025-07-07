@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
