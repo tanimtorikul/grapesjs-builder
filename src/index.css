@@ -1,20 +1,11 @@
 @import "tailwindcss";
 
 
-@keyframes marquee-ltr {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.latest-news-marquee[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
 }
-
-@keyframes marquee-rtl {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+.latest-news-marquee[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
 }

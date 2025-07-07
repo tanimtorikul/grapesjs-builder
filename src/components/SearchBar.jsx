@@ -22,11 +22,11 @@ const SearchBar = ({
       {components.map((field, idx) => {
         if (
           field.tag === "div" &&
-          field.classes?.includes("trip-type") &&
+          field.classes?.includes("trip-radio-wrapper") &&
           field.components?.length
         ) {
           return (
-            <div key={idx} className="trip-type" style={field.style}>
+            <div key={idx} className="trip-radio-wrapper" style={field.style}>
               {field.components.map((labelComp, i) => {
                 const input = labelComp.components.find(
                   (c) => c.type === "input"
@@ -66,7 +66,8 @@ const SearchBar = ({
               key={idx}
               type={field.type || "text"}
               placeholder={field.placeholder}
-              className={field.classes?.join(" ")}
+             className={`${field.classes?.join(" ") || ""} border border-gray-300 bg-white`}
+
               style={field.style}
             />
           );
@@ -76,7 +77,7 @@ const SearchBar = ({
           return (
             <button
               key={idx}
-              className={field.classes?.join(" ")}
+              className={`${field.classes?.join(" ") || ""}  bg-[#EFEFEF] rounded`}
               style={field.style}
             >
               {field.content || "Search"}

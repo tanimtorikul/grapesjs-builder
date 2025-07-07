@@ -37,7 +37,7 @@ const itemContainerComponent = (editor) => {
 
         this.setStyle({
           display: "grid",
-          "grid-template-columns": `repeat(${count}, 1fr)`, 
+          "grid-template-columns": `repeat(${count}, 1fr)`,
           gap: "15px",
           padding: "10px",
           backgroundColor: "#f0f0f0",
@@ -46,23 +46,22 @@ const itemContainerComponent = (editor) => {
         this.generateCards(count);
       },
 
-    generateCards(count) {
-  const components = this.get("components");
-  const currentCount = components.length;
+      generateCards(count) {
+        const components = this.get("components");
+        const currentCount = components.length;
 
-  if (currentCount > count) {
-    // Remove extra
-    for (let i = currentCount - 1; i >= count; i--) {
-      components.at(i).remove();
-    }
-  } else {
-    // Add new ones
-    for (let i = currentCount; i < count; i++) {
-      components.add({ type: "item-card" });
-    }
-  }
-}
-
+        if (currentCount > count) {
+          // Remove extra
+          for (let i = currentCount - 1; i >= count; i--) {
+            components.at(i).remove();
+          }
+        } else {
+          // Add new ones
+          for (let i = currentCount; i < count; i++) {
+            components.add({ type: "item-card" });
+          }
+        }
+      },
     },
 
     view: {

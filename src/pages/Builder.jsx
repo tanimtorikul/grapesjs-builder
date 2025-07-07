@@ -35,7 +35,7 @@ const Builder = () => {
     <div className="h-screen flex flex-col">
       {/* Header */}
       <div className="p-2 bg-gray-100 border-b flex justify-between items-center">
-        <h1 className="text-xl font-bold">Product Page Builder</h1>
+        <h1 className="text-xl font-bold">Builder</h1>
         <div className="flex items-center gap-2">
       
           <button

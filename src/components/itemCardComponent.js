@@ -4,7 +4,7 @@ const itemCardComponent = (editor) => {
       defaults: {
         tagName: "div",
         droppable: false,
-        editable: true,
+        editable: false,
         attributes: {
           itemName: "Name",
           price: "price",
